@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education Hub - Home</title>
+  <style>
+    body { margin:0; font-family: Arial; background:#f4f7fb; }
+    header { background:#ffcc00; padding:15px; text-align:center; font-size:24px; font-weight:bold; }
+    nav { display:flex; justify-content:center; background:#333; }
+    nav a { color:white; padding:14px 20px; text-decoration:none; }
+    nav a:hover { background:#ffcc00; color:black; }
+    .container { padding:20px; }
+    .card { background:white; padding:20px; margin:15px 0; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:15px; }
+    button { background:#ffcc00; border:none; padding:10px; cursor:pointer; border-radius:5px; }
+    input { padding:10px; width:70%; }
+  </style>
+</head>
+<body>
+
+<header>Education Hub - Education Platform</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="notes.html">Notes</a>
+  <a href="software.html">Software</a>
+  <a href="courses.html">Courses</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<div class="container">
+  <div class="card">
+    <h2>Welcome to Education Hub</h2>
+    <p>Your all-in-one platform for learning, notes, and tools.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>📘 Notes</h3>
+      <p>Access and create study notes.</p>
+      <a href="notes.html"><button>Open</button></a>
+    </div>
+
+    <div class="card">
+      <h3>💻 Software</h3>
+      <p>Download useful educational tools.</p>
+      <a href="software.html"><button>Explore</button></a>
+    </div>
+
+    <div class="card">
+      <h3>🎓 Courses</h3>
+      <p>Browse learning topics.</p>
+      <a href="courses.html"><button>View</button></a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+<!-- NOTES PAGE -->
+
+<!-- Save as notes.html -->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Education Hub- Notes</title>
+</head>
+<body>
+<header>Notes</header>
+<input id="noteInput" placeholder="Write note">
+<button onclick="addNote()">Add</button>
+<ul id="list"></ul>
+
+<script>
+function addNote(){
+ let input=document.getElementById('noteInput');
+ let notes=JSON.parse(localStorage.getItem('notes'))||[];
+ notes.push(input.value);
+ localStorage.setItem('notes',JSON.stringify(notes));
+ display();
+ input.value='';
+}
+
+function display(){
+ let notes=JSON.parse(localStorage.getItem('notes'))||[];
+ let list=document.getElementById('list');
+ list.innerHTML='';
+ notes.forEach(n=>{
+  let li=document.createElement('li');
+  li.textContent=n;
+  list.appendChild(li);
+ });
+}
+
+display();
+</script>
+</body>
+</html>
+
+
+<!-- SOFTWARE PAGE -->
+
+<!-- Save as software.html -->
+<!DOCTYPE html>
+<html>
+<head><title>Software</title></head>
+<body>
+<h2>Download Software</h2>
+<ul>
+<li><a href="https://code.visualstudio.com/">VS Code</a></li>
+<li><a href="https://www.google.com/chrome/">Google Chrome</a></li>
+<li><a href="https://git-scm.com/">Git</a></li>
+</ul>
+</body>
+</html>
+
+
+<!-- COURSES PAGE -->
+
+<!-- Save as courses.html -->
+<!DOCTYPE html>
+<html>
+<head><title>Courses</title></head>
+<body>
+<h2>Courses</h2>
+<ul>
+<li>HTML, CSS, JavaScript</li>
+<li>Python Programming</li>
+<li>Mathematics Basics</li>
+</ul>
+</body>
+</html>
+
+
+<!-- CONTACT PAGE -->
+
+<!-- Save as contact.html -->
+<!DOCTYPE html>
+<html>
+<head><title>Contact</title></head>
+<body>
+<h2>Contact Us</h2>
+<input placeholder="Your Name"><br><br>
+<input placeholder="Your Email"><br><br>
+<textarea placeholder="Message"></textarea><br><br>
+<button>Send</button>
+</body>
+</html>
+
