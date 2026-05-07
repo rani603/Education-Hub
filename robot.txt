@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shimmering-entremet-688f12.netlify.app/sitemap.xml
